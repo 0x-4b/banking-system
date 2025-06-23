@@ -6,7 +6,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int accountNumber = 1001;
 
-        AccountHolder user = new AccountHolder(null, null, null);
         ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
         System.out.print("Enter your name: ");
         String userName = scanner.nextLine();
@@ -14,7 +13,7 @@ public class Main {
         String userEmail = scanner.nextLine();
         System.out.println();
         System.out.println("Welcome " + userName + ".");
-        user = new AccountHolder(userName, userEmail, accounts);
+        AccountHolder user = new AccountHolder(userName, userEmail, accounts);
         while (true) {
 
             System.out.println("1. Create account");
@@ -29,25 +28,35 @@ public class Main {
 
             switch (userChoice) {
                 case 1:
-                    System.out.println("Choose account type (Savings / Checking)");
+                    System.out.print("Choose account type (Savings / Checking)");
                     String accountChoice = scanner.nextLine();
-                    if (!accountChoice.equals("Savings") || !accountChoice.equals("Checking")) {
-                        System.out.println("Choose a valid account type.");
-                        break;
-                    } else {
-                        if (accountChoice.equals("Savings")) {
-                            double interestRate = scanner.nextDouble();
-                            accounts.add(new SavingsAccount(accountNumber, 0, interestRate));
-                        } else {
-                            double overdraftLimit = scanner.nextDouble();
-                            accounts.add(new CheckingAccount(accountNumber, 0, overdraftLimit));
-                        }
 
-                        break;
+                    if (accountChoice.equals("Savings")) {
+                        System.out.print("Enter the interest rate: ");
+                        double interestRate = scanner.nextDouble();
+                        accounts.add(new SavingsAccount(accountNumber, 0, interestRate));
+                        System.out.println("Account successfully created");
+
+                        System.out.println("Successfully opened a " + accountChoice + " account. Account number: "
+                                + accountNumber);
+                        accountNumber++;
+                    } else if (accountChoice.equals("Checking")) {
+                        System.out.print("Enter the overdraft limit: ");
+                        double overdraftLimit = scanner.nextDouble();
+                        accounts.add(new CheckingAccount(accountNumber, 0, overdraftLimit));
+
+                        System.out.println("Account successfully created");
+
+                        System.out.println("Successfully opened a " + accountChoice + " account. Account number: "
+                                + accountNumber);
+                        accountNumber++;
+                    } else {
+                        System.out.println("Choose a valid account type.");
                     }
+                    break;
 
                 case 2:
-
+                 
                     break;
                 case 3:
 
@@ -63,6 +72,5 @@ public class Main {
                     break;
             }
         }
-
     }
 }
