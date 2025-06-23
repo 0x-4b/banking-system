@@ -18,15 +18,7 @@ public abstract class BankAccount {
     }
 
 
-    public void withdraw(double amount) {
-        if (amount > balance) {
-            System.out.println("You can't take money from the void.");
-        }
-        else {
-            balance -= amount;
-            System.out.println("Withdrawn " + amount + "$ successfully.");
-        }
-    }
+    public abstract void withdraw(double amount);
 
     public double getBalance() {
         return balance;
