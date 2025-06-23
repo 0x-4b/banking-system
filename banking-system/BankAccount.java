@@ -24,7 +24,11 @@ public abstract class BankAccount {
         return balance;
     }
 
+    public void updateBalance(double newBalance) {
+        this.balance = newBalance;
+    }
 
+    
     @Override
     public String toString() {
         return "Num: " + accountNumber + " & Balance: " + balance;
