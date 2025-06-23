@@ -20,6 +20,10 @@ public abstract class BankAccount implements BankInterface{
 
     public abstract void withdraw(double amount);
 
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+    
     public double getBalance() {
         return balance;
     }
