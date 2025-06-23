@@ -1,4 +1,4 @@
-public abstract class BankAccount {
+public abstract class BankAccount implements BankInterface{
     private int accountNumber;
     private double balance;
 
@@ -28,7 +28,7 @@ public abstract class BankAccount {
         this.balance = newBalance;
     }
 
-    
+
     @Override
     public String toString() {
         return "Num: " + accountNumber + " & Balance: " + balance;
