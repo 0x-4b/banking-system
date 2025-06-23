@@ -18,12 +18,17 @@ public class CheckingAccount extends BankAccount {
             double newBalance = getBalance() - amount;
             updateBalance(newBalance);
 
-            System.out.println("Withdraw " + amount + "$ successfully.");
+            System.out.println("Withdrawn " + amount + "$ successfully.");
 
             if (newBalance < 0) {
                 System.out.println("Just to say my friend, your money's way down (zero or less).");
             }
         }
+    }
+
+ @Override
+    public String toString() {
+        return "No: " + getAccountNumber() + " & Balance: " + getBalance() + " & Overdraft Limit: " + overdraftLimit;
     }
     
 }

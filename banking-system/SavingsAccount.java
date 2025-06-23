@@ -18,7 +18,7 @@ public class SavingsAccount extends BankAccount {
         else {
             double newBalance = getBalance() - amount;
             updateBalance(newBalance);
-            System.out.println("Withdrawn " + getBalance() + "$ successfully.");
+            System.out.println("Withdrawn " + amount + "$ successfully.");
         }
     }
 
@@ -27,5 +27,12 @@ public class SavingsAccount extends BankAccount {
 
         updateBalance(newBalance);
         System.out.println("Interest of " + interestRate + " has been applied to your savings.");
+    }
+
+
+
+ @Override
+    public String toString() {
+        return "No: " + getAccountNumber() + " & Balance: " + getBalance() + " & Interest: " + interestRate;
     }
 }

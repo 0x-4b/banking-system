@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         int accountNumber = 1001;
 
         ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
@@ -16,6 +18,7 @@ public class Main {
         AccountHolder user = new AccountHolder(userName, userEmail, accounts);
         while (true) {
 
+            BankAccount account;
             System.out.println("1. Create account");
             System.out.println("2. Deposit money");
             System.out.println("3. Withdraw money");
@@ -28,14 +31,13 @@ public class Main {
 
             switch (userChoice) {
                 case 1:
-                    System.out.print("Choose account type (Savings / Checking)");
+                    System.out.print("Choose account type (Savings / Checking): ");
                     String accountChoice = scanner.nextLine();
 
                     if (accountChoice.equals("Savings")) {
                         System.out.print("Enter the interest rate: ");
                         double interestRate = scanner.nextDouble();
                         accounts.add(new SavingsAccount(accountNumber, 0, interestRate));
-                        System.out.println("Account successfully created");
 
                         System.out.println("Successfully opened a " + accountChoice + " account. Account number: "
                                 + accountNumber);
@@ -44,8 +46,6 @@ public class Main {
                         System.out.print("Enter the overdraft limit: ");
                         double overdraftLimit = scanner.nextDouble();
                         accounts.add(new CheckingAccount(accountNumber, 0, overdraftLimit));
-
-                        System.out.println("Account successfully created");
 
                         System.out.println("Successfully opened a " + accountChoice + " account. Account number: "
                                 + accountNumber);
@@ -56,21 +56,67 @@ public class Main {
                     break;
 
                 case 2:
-                 
-                    break;
-                case 3:
+                    account = checkForAccount(user);
+
+                    if (account != null) {
+                        System.out.print("Enter the amount to be deposited: ");
+                        double depositAmount = scanner.nextInt();
+                        account.deposit(depositAmount);
+                    }
+
+                    else {
+                        System.out.println("Account not found.");
+                    }
 
                     break;
+                case 3:
+                    account = checkForAccount(user);
+
+                    if (account != null) {
+                        System.out.print("Enter the amount to be withdrawn: ");
+                        double withdrawAmount = scanner.nextInt();
+                        account.withdraw(withdrawAmount);
+                    }
+
+                    else {
+                        System.out.println("Account not found.");
+                    }
+
+                    break;
+
                 case 4:
+                    account = checkForAccount(user);
+
+                    if (account != null) {
+                        System.out.println(account.toString());
+                    }
+
+                    else {
+                        System.out.println("Account not found.");
+                    }
 
                     break;
                 case 5:
-
+                    System.out.println("Thanks for banking with us. Goodbye!");
+                    System.exit(0);
                     break;
 
                 default:
+                    System.out.println("Something went wrong.");
                     break;
             }
         }
     }
+
+    public static BankAccount checkForAccount(AccountHolder user) {
+
+        System.out.print("Enter account number: ");
+        int accountNum = scanner.nextInt();
+        scanner.nextLine();
+
+        BankAccount account = user.getAccountByNumber(accountNum);
+
+        return account;
+    }
+
 }

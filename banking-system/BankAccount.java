@@ -35,7 +35,7 @@ public abstract class BankAccount implements BankInterface{
 
     @Override
     public String toString() {
-        return "Num: " + accountNumber + " & Balance: " + balance;
+        return "No: " + accountNumber + " & Balance: " + balance;
     }
 
 }
