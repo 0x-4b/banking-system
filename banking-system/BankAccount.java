@@ -10,6 +10,7 @@ public abstract class BankAccount implements BankInterface{
     public void deposit(double amount) {
         if (amount <= 0) {
             System.out.println("Enter a positive number.");
+            return;
         }
         else {
             balance += amount;

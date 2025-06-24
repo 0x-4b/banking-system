@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
@@ -26,9 +27,16 @@ public class Main {
             System.out.println("5. EXIT");
 
             System.out.print("Choose: ");
-            int userChoice = scanner.nextInt();
+            int userChoice = -1;
+            try {
+             userChoice = scanner.nextInt();
             scanner.nextLine();
-
+            }
+            catch (InputMismatchException e) {
+    System.out.println("Invalid input! Please enter a number between 1 and 5.");
+    scanner.nextLine(); 
+    continue;  
+}
             switch (userChoice) {
                 case 1:
                     System.out.print("Choose account type (Savings / Checking): ");
