@@ -9,6 +9,7 @@ A simple Java command-line application for managing personal bank accounts. Crea
 
 ## Table of Contents
 
+- [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -17,6 +18,12 @@ A simple Java command-line application for managing personal bank accounts. Crea
 - [Contributing](#contributing)
 - [License](#license)
 - [Author](#author)
+
+---
+
+## Overview
+
+**Banking System CLI** enables you to simulate a basic banking environment from your terminal. Create and manage savings or checking accounts, deposit or withdraw funds, and view account information with a user-friendly CLI.
 
 ---
 
@@ -35,7 +42,7 @@ A simple Java command-line application for managing personal bank accounts. Crea
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/banking-system.git
+   git clone https://github.com/0x-4b/banking-system.git
    cd banking-system
    ```
 
@@ -101,7 +108,7 @@ banking-system/
 ## Contributing
 
 Pull requests and suggestions are welcome!  
-Please [open an issue](https://github.com/your-username/banking-system/issues) to discuss changes or enhancements, or submit a pull request.
+Please [open an issue](https://github.com/0x-4b/banking-system/issues) to discuss changes or enhancements, or submit a pull request.
 
 ---
 
@@ -113,14 +120,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Author
 
-**Your Name**  
-GitHub: [@your-username](https://github.com/your-username)
+**0x-4b**  
+GitHub: [@0x-4b](https://github.com/0x-4b)
 
 ---
-
-<!--
-Tips:
-- Add a screenshot or GIF of the CLI in action for extra polish.
-- If you use GitHub Actions or other CI, add a build badge.
-- For real-world projects, add a SECURITY.md and a CODE_OF_CONDUCT.md.
--->
